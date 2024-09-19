@@ -1,0 +1,98 @@
+/*Class: CMSC203 CRN 20932
+ Program: Assignment #3 
+ Instructor: Professor Ahmed Tarek 
+ Summary of Description: (Give a brief description for each Program)
+ Due Date: 09/18/2024
+ Integrity Pledge: I pledge that I have completed the programming assignment independently.
+ I have not copied the code from a student or any source.
+Student’s Name: Sunpairre Tamene
+*/
+package espgame;
+
+// Importing necessary classes
+import java.util.Random;
+import java.util.Scanner;
+
+public class ESPgame {
+    public static void main(String[] args) {
+        // Defining color constants
+        final String COLOR_RED = "Red";
+        final String COLOR_BLUE = "Blue";
+        final String COLOR_PINK = "Pink";
+        final String COLOR_PURPLE = "Purple";
+        final String COLOR_GREEN = "Green";
+        final String COLOR_WHITE = "White";
+        final String COLOR_BLACK = "Black";
+        
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+        
+        String name;
+        String description;
+        String colors;
+        int counter = 0; 
+        String userGuess = null;
+
+        // Getting user name and detail 
+        System.out.print("What is your name? ");
+        name = input.nextLine();
+        System.out.print("Describe yourself: ");
+        description = input.nextLine();
+        System.out.println();
+
+        // Loop for the rounds 
+        for (int i = 1; i <= 10; i++) {
+            boolean valid = true;
+            System.out.println("Round " + i);
+            System.out.println();
+
+            while (valid) {
+                System.out.println("I am thinking of a color.\n" +
+                                   "Is it Red, Green, Blue, Pink, White, Purple or Black?\n" +
+                                   "Enter your guess: ");
+                userGuess = input.nextLine().trim(); // Added .trim() to remove extra spaces
+
+                if (userGuess.equalsIgnoreCase(COLOR_RED) || 
+                    userGuess.equalsIgnoreCase(COLOR_BLUE) ||
+                    userGuess.equalsIgnoreCase(COLOR_PINK) ||
+                    userGuess.equalsIgnoreCase(COLOR_GREEN) ||
+                    userGuess.equalsIgnoreCase(COLOR_WHITE) ||
+                    userGuess.equalsIgnoreCase(COLOR_BLACK) ||
+                    userGuess.equalsIgnoreCase(COLOR_PURPLE)) {
+                    valid = false;
+                } else {
+                    System.out.print("Error! Please enter a valid color.\n");
+                }
+            }
+
+            int randNum = random.nextInt(7); 
+            switch (randNum) {
+                case 0: colors = COLOR_RED; break;
+                case 1: colors = COLOR_PINK; break;
+                case 2: colors = COLOR_WHITE; break;
+                case 3: colors = COLOR_BLUE; break;
+                case 4: colors = COLOR_GREEN; break;
+                case 5: colors = COLOR_BLACK; break;
+                case 6: colors = COLOR_PURPLE; break;
+                default: colors = "Unknown color"; break;
+            }
+
+            System.out.println("I was thinking of " + colors);
+
+            if (colors.equalsIgnoreCase(userGuess)) {
+                counter++; 
+            }
+
+            System.out.println();
+        }
+
+        // Print results
+        System.out.println("You guessed " + counter + " out of 10 colors correctly.");
+        System.out.println();
+        System.out.println("Sunpairre Tamene: " + name);
+        System.out.println("Assigment 1: " + description);
+        System.out.println("Due Date: 09/18/2024");
+
+        input.close();
+    }
+}

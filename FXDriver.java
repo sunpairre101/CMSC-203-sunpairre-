@@ -1,44 +1,41 @@
 /*
+
  * Class: CMSC203 
- * Instructor:Professor Tarek
- * Description: Lab2
- * Due: 10/16/2024
- * Platform/compiler:
+ * Instructor:Proffesor Tarek
+ * Description: Project 3
+ * Due: 10/17/2024
+ * Platform/compiler:Ecllipse
  * I pledge that I have completed the programming 
  * assignment independently. I have not copied the code 
  * from a student or any source. I have not given my code 
  * to any student.
-   Print your Name here: Sunpairre Tamene
+   Print your Name here:Sunpairre Tamene
 */
-package L2;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The main method for the GUI example program JavaFX version
+ * 
+ * @author Farnaz Eivazi
+ * @version 7/11/2022 *
+ */
 public class FXDriver extends Application {
 
-    @Override
-    public void start(Stage stage) {
-        // Instantiate the FXMainePaine (this is the root of your scene)
-        FXMainePaine root = new FXMainePaine();
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
 
-        // Create a Scene with the root (FXMainePaine)
-        Scene scene = new Scene(root, 400, 200);
+	@Override
+	public void start(Stage stage) throws Exception {
+		// call the main scene which is a BorderPane
+		FXMainPane root = new FXMainPane();
+		stage.setScene(new Scene(root, 600, 350));
+		// Set stage title and show the stage.
+		stage.setTitle("Cybersecurity Encryption and Decryption");
+		stage.show();
 
-        // Set the scene to the stage
-        stage.setScene(scene);
-
-        // Set the stage title
-        stage.setTitle("Hello World GUI");
-
-        // Display the stage
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        // Launch the JavaFX application
-        launch(args);
-    }
+	}
 }
-
